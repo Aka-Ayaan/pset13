@@ -33,6 +33,15 @@ Each of the problems below is similar in some way to some worked example in the 
 
   \begin{solution}
     % Enter your solution here.
+    \begin{proof}
+      We claim that $n \in S$ if and only if $n = 2^k - 1$ for some $k \in \mathbb{N}$. We will prove this claim by structural induction.
+
+      \textbf{Basis:} $0 = 2^0 - 1$.
+
+      \textbf{Induction:} Suppose $n = 2^k - 1$ for some $k \in \mathbb{N}$. Then $2n + 1 = 2(2^k - 1) + 1 = 2^{k+1} - 2 + 1 = 2^{k+1} - 1$. Thus, $2n + 1 = 2^{k+1} - 1$.
+
+      By structural induction, we have shown that $n \in S$ if and only if $n = 2^k - 1$ for some $k \in \mathbb{N}$.
+    \end{proof}
   \end{solution}
   
 \question Let $\lambda$ denote the empty string. Let $A$ be any finite nonempty set. A \textit{palindrome} over $A$ can be defined as a string that reads the same forward as backward. For example, ``mom'' and ``dad'' are palindromes over the English alphabet.
@@ -49,6 +58,21 @@ Each of the problems below is similar in some way to some worked example in the 
 
   \begin{solution}
     % Enter your solution here.
+    \begin{proof}
+      We claim that $S$ is the set of all palindromes over $A$. We will prove this claim by structural induction.
+
+      \textbf{Basis:} $\lambda$ is a palindrome over $A$.
+
+      \textbf{Induction:} Suppose $a \in A$ and $x \in S$ is a palindrome over $A$. Then $axa$ is a palindrome over $A$.
+
+      By structural induction, we have shown that $S$ is the set of all palindromes over $A$. Now we will show that any palindrome over $A$ is in $S$.
+
+      \textbf{Basis:} Any palindrome of length 0 is $\lambda$, which is in $S$.
+
+      \textbf{Induction:} Suppose $p$ is a palindrome over $A$ of length $n$. Then $p = axa$ for some $a \in A$ and $x$ is a palindrome over $A$ of length $n-2$. By the induction hypothesis, $x \in S$. By the induction step, $axa \in S$.
+
+      By structural induction, we have shown that any palindrome over $A$ is in $S$.
+    \end{proof}
   \end{solution}
 
 \question
@@ -62,6 +86,15 @@ Each of the problems below is similar in some way to some worked example in the 
 
   \begin{solution}
     % Enter your solution here.
+    \begin{proof}
+      We claim that for any $(x, y) \in G$, $c|x$ and $c|y$. We will prove this claim by structural induction.
+
+      \textbf{Basis:} $(a, b) \in G$, so $c|a$ and $c|b$.
+
+      \textbf{Induction:} Suppose $(u, v) \in G$ such that $c|u$ and $c|v$. Then $(u, v - u) \in G$ and $(u - v, v) \in G$. By the induction hypothesis, $c|u$ and $c|(v - u)$, so $c|v$. Similarly, $c|(u - v)$ and $c|v$, so $c|u$.
+
+      By structural induction, we have shown that for any $(x, y) \in G$, $c|x$ and $c|y$.
+    \end{proof}
   \end{solution}
 
   
@@ -81,6 +114,20 @@ Each of the problems below is similar in some way to some worked example in the 
 
   \begin{solution}
     % Enter your solution here.
+    \begin{proof}
+      We claim that for all $\mu, \nu \in S$, $R(\mu\nu) = R(\nu)R(\mu)$. We will prove this claim by structural induction.
+
+      \textbf{Basis:} If $\mu = a$ and $\nu = a$, then $R(\mu\nu) = R(aa) = a$ and $R(\nu)R(\mu) = aa = a$.
+      If $\mu = a$ and $\nu = b$, then $R(\mu\nu) = R(ab) = ba$ and $R(\nu)R(\mu) = ba = ba$.
+      If $\mu = b$ and $\nu = a$, then $R(\mu\nu) = R(ba) = ab$ and $R(\nu)R(\mu) = ab = ab$.
+      If $\mu = b$ and $\nu = b$, then $R(\mu\nu) = R(bb) = b$ and $R(\nu)R(\mu) = bb = b$.
+
+      \textbf{Induction:} Suppose $\mu, \nu \in S$ such that $R(\mu\nu) = R(\nu)R(\mu)$.
+      Then $R(\mu\nu a) = R(a\mu\nu) = R(\nu a)R(\mu) = R(\nu)R(a\mu) = R(\nu)R(\mu a) = R(\nu\mu a)$.
+      Similarly, $R(\mu\nu b) = R(b\mu\nu) = R(\nu b)R(\mu) = R(\nu)R(b\mu) = R(\nu)R(\mu b) = R(\nu\mu b)$.
+
+      By structural induction, we have shown that for all $\mu, \nu \in S$, $R(\mu\nu) = R(\nu)R(\mu)$.
+    \end{proof}
   \end{solution}
   
 \end{questions}
